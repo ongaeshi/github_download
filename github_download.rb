@@ -38,9 +38,9 @@ loop do
   dir = File.join(Dir.documents, dirname)
 
   if File.exists? dir
-    puts "Already exits #{dirname}."
+    puts "Already exits '#{dirname}'."
   else
-    File.mkdir dir
+    Dir.mkdir dir
     github_download(repo_name, dir)
   end
 end
