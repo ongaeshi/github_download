@@ -1,2 +1,3 @@
 # github_download
-Download repository from GitHub 
+Download GitHub repository for RubyPico
+
