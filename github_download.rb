@@ -68,15 +68,15 @@ loop do
     end
   end
   
-  repo_name = args[0]
-  
-  dirname = File.basename(repo_name)
-  dir = File.join(Dir.documents, dirname)
+  args.each do |repo_name| 
+    dirname = File.basename(repo_name)
+    dir = File.join(Dir.documents, dirname)
 
-  if opts[:update] || !File.exists?(dir)
-    mkdir_p(dir)
-    github_download(repo_name, dir, token)
-  else
-    puts "Already exits '#{dirname}'."
+    if opts[:update] || !File.exists?(dir)
+      mkdir_p(dir)
+      github_download(repo_name, dir, token)
+    else
+      puts "Already exits '#{dirname}'."
+    end
   end
 end
