@@ -1,6 +1,17 @@
-def github_download(name, dir)
+def bget(url, token)
+  if token
+    ret = Browser.get(url, header: { "Authorization" => "token #{token}"})
+  else
+    ret = Browser.get(url)
+  end
+
+  JSON::parse(ret)
+end
+
+def github_download(name, dir, token=nil)
   url = "https://api.github.com/repos/#{name}/git/trees/master?recursive=1"
-  ret = Browser.json(url)
+
+  ret = bget(url, token)
 
   raise "truncated == true" if ret["truncated"]
 
@@ -9,7 +20,7 @@ def github_download(name, dir)
     when "blob"
       puts e["path"]
 
-      tree = Browser.json(e["url"])
+      tree = bget(e["url"], token)
       raise unless tree["encoding"] == "base64"
 
       File.open(File.join(dir, e["path"]), "w") do |f|
@@ -26,12 +37,19 @@ def github_download(name, dir)
   puts "DONE."
 end
 
-#---
+# Initialize
+begin
+  token = GITHUB_DOWNLOAD_TOKEN
+rescue NameError
+  # token is nil
+end
+
 puts <<EOS
 Repository name?
 (e.g. ongaeshi/tango)
 EOS
 
+# Mainloop
 loop do
   repo_name = prompt
   dirname = File.basename(repo_name)
@@ -41,6 +59,6 @@ loop do
     puts "Already exits '#{dirname}'."
   else
     Dir.mkdir dir
-    github_download(repo_name, dir)
+    github_download(repo_name, dir, token)
   end
 end
