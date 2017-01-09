@@ -17,7 +17,7 @@ require "github_download"
 # require "rubypico_github/github_download"
 ```
 
-### Setup TOKEN
+### Setup TOKEN (Optional)
 Add `GITHUB_DOWNLOAD_TOKEN` constant to `.app/github_download`
 
 ```ruby
