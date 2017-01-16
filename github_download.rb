@@ -38,8 +38,6 @@ def github_download(name, dir, token=nil)
       mkdir_p(dst)
     end
   end
-
-  puts "DONE."
 end
 
 # Initialize
@@ -51,7 +49,7 @@ end
 
 puts <<EOS
 Repository name?
-(e.g. ongaeshi/tango)
+(e.g. app_installer, ongaeshi/tango)
 EOS
 
 # Mainloop
@@ -68,8 +66,9 @@ loop do
     end
   end
   
-  args.each do |repo_name| 
+  args.each do |repo_name|
     dirname = File.basename(repo_name)
+    repo_name = "rubypico/#{repo_name}" if dirname == repo_name
     dir = File.join(Dir.documents, dirname)
 
     if opts[:update] || !File.exists?(dir)
