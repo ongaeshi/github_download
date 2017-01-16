@@ -28,11 +28,11 @@ require "github_download"
 ### Usage
 ```
 Repository name?
-(e.g. ongaeshi/tango)
+(e.g. app_installer, ongaeshi/tango)
 
 # Download GitHub repository
-$ rubypico/rubypico_github
+$ app_installer
 
 # Download GitHub repository (Overwrite)
-$ rubypico/rubypico_github -u
+$ app_installer -u
 ```
