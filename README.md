@@ -5,7 +5,7 @@ RubyPico Tools to access the GitHub
 Download GitHub repository
 
 ### Install
-Copy [github_download.rb](https://github.com/ongaeshi/rubypico_github/blob/master/github_download.rb)([raw](https://raw.githubusercontent.com/ongaeshi/rubypico_github/master/github_download.rb)) to Your RubyPico root directory.
+Copy [github_download.rb](https://github.com/rubypico/rubypico_github/blob/master/github_download.rb)([raw](https://raw.githubusercontent.com/rubypico/rubypico_github/master/github_download.rb)) to Your RubyPico root directory.
 
 ### Setup App Tab
 1. Create `.app/github_download` 
@@ -31,8 +31,8 @@ Repository name?
 (e.g. ongaeshi/tango)
 
 # Download GitHub repository
-$ ongaeshi/rubypico_github
+$ rubypico/rubypico_github
 
 # Download GitHub repository (Overwrite)
-$ ongaeshi/rubypico_github -u
+$ rubypico/rubypico_github -u
 ```
