@@ -31,7 +31,7 @@ Repository name?
 (e.g. app_installer, ongaeshi/tango)
 
 # Download GitHub repository
-$ app_installer
+$ app_installer                                          # Install from rubypico/app_installer
 
 # Download GitHub repository (Overwrite)
 $ app_installer -u
